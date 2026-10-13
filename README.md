@@ -127,5 +127,5 @@ AI tools are used as documented in `AGENTS.md` (context rules for AI assistants)
 ## Credits
 
 - Pokémon data and sprites from [PokéAPI](https://pokeapi.co). Pokémon and related names are trademarks of their respective owners, and this is a non-commercial student project.
-- Theme: [Bootswatch](https://bootswatch.com) _(theme name TBD)_ on Bootstrap 5.
+- Bootswatch theme: [Darkly](https://bootswatch.com/darkly/)
 - Charts: Highcharts. Tables: DataTables.
