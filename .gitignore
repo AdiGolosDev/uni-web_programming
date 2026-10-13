@@ -4,3 +4,4 @@ backend/vendor/
 vendor/
 .DS_Store
 .idea/
+!backend/logs/.gitkeep
