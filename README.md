@@ -3,7 +3,9 @@
 A Pokémon team builder and weakness analyzer. Build a team of up to 6 Pokémon for a specific game (like Pokémon Emerald Version) and instantly see what it is weak to and where it has gaps. Trainers can share teams publicly and comment on each other's teams, and anyone can browse the Pokédex without an account.
 
 **Author:** Adi Golos
+
 **Course:** Web Programming
+
 **Status:** Milestone 1 / 5 (draft).
 
 ---
@@ -80,7 +82,7 @@ Key relationships:
 - A Pokémon has one or two types and can be in many teams, even twice in the same team.
 - A game is used by many teams. A Pokémon is allowed in a game if its generation is not newer than the game's.
 
-ERD: **work in progress**
+ERD: draft version located in docs/erd.png
 
 ## External API
 
