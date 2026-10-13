@@ -1,0 +1,6 @@
+backend/config/config.php
+backend/logs/*
+backend/vendor/
+vendor/
+.DS_Store
+.idea/
