@@ -1,2 +1,210 @@
-<h1>home</h1>
-<p>This is the home view.</p>
+<!-- HOME (guest view). Static draft: all content is hard-coded sample data. -->
+<section class="hero text-center mb-5">
+  <h1 class="display-5 fw-bold">Welcome to PokéPlanner!</h1>
+  <p class="lead mx-auto" style="max-width: 750px;">Pick up to six Pokémon for your game and see instantly what your team is weak to.</p>
+</section>
+
+<!-- FEATURED POKÉMON -->
+<section class="mb-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0">Here are some Pokémon!</h2>
+    <a href="#/pokedex" class="btn btn-primary">Browse the Pokédex <span aria-hidden="true">&rarr;</span></a>
+  </div>
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" class="sprite-md mx-auto mt-3" alt="Venusaur">
+        <div class="card-body">
+          <small class="text-body-secondary">#003</small>
+          <h3 class="h6 card-title mb-2">Venusaur</h3>
+          <span class="badge type-badge type-grass">Grass</span> <span class="badge type-badge type-poison">Poison</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" class="sprite-md mx-auto mt-3" alt="Charizard">
+        <div class="card-body">
+          <small class="text-body-secondary">#006</small>
+          <h3 class="h6 card-title mb-2">Charizard</h3>
+          <span class="badge type-badge type-fire">Fire</span> <span class="badge type-badge type-flying">Flying</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" class="sprite-md mx-auto mt-3" alt="Blastoise">
+        <div class="card-body">
+          <small class="text-body-secondary">#009</small>
+          <h3 class="h6 card-title mb-2">Blastoise</h3>
+          <span class="badge type-badge type-water">Water</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="sprite-md mx-auto mt-3" alt="Pikachu">
+        <div class="card-body">
+          <small class="text-body-secondary">#025</small>
+          <h3 class="h6 card-title mb-2">Pikachu</h3>
+          <span class="badge type-badge type-electric">Electric</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" class="sprite-md mx-auto mt-3" alt="Gengar">
+        <div class="card-body">
+          <small class="text-body-secondary">#094</small>
+          <h3 class="h6 card-title mb-2">Gengar</h3>
+          <span class="badge type-badge type-ghost">Ghost</span> <span class="badge type-badge type-poison">Poison</span>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card pokemon-card text-center h-100">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" class="sprite-md mx-auto mt-3" alt="Dragonite">
+        <div class="card-body">
+          <small class="text-body-secondary">#149</small>
+          <h3 class="h6 card-title mb-2">Dragonite</h3>
+          <span class="badge type-badge type-dragon">Dragon</span> <span class="badge type-badge type-flying">Flying</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT PUBLIC TEAMS
+     Each card: trainer profile on top (avatar, favorite Pokémon, bio, currently playing),
+     then the team itself (name, game, challenge, six sprites). -->
+<section class="mb-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h2 class="h4 mb-0">Recent public teams</h2>
+    <a href="#/teams" class="btn btn-outline-primary">See all teams <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
+    <!-- TEAM 1 -->
+    <div class="col">
+      <div class="card team-card h-100 shadow-sm">
+        <!-- Trainer profile -->
+        <div class="card-header d-flex align-items-center gap-3 py-3">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png" class="avatar avatar-lg" alt="">
+          <div>
+            <div class="small text-body-secondary text-uppercase">Trainer</div>
+            <div class="h5 mb-0">ash_k</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <dl class="trainer-info mb-0">
+            <dt>Favorite Pokémon</dt><dd>Gastly</dd>
+            <dt>Bio</dt><dd>Chasing every badge, one Nuzlocke at a time.</dd>
+            <dt>Currently playing</dt><dd>Pokémon Emerald</dd>
+          </dl>
+
+          <hr>
+
+          <!-- The team -->
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+            <h3 class="h5 mb-0">Hoenn Nuzlocke</h3>
+            <span class="badge bg-info">Nuzlocke</span>
+          </div>
+          <p class="small text-body-secondary mb-2">Built for Pokémon Emerald</p>
+          <div class="team-grid rounded p-2">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png" alt="Sceptile">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png" alt="Blaziken">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" alt="Swampert">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" alt="Gardevoir">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png" alt="Aggron">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png" alt="Flygon">
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <small class="text-body-secondary">7 comments</small>
+          <a href="#/team" class="btn btn-sm btn-primary">View team</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM 2 -->
+    <div class="col">
+      <div class="card team-card h-100 shadow-sm">
+        <div class="card-header d-flex align-items-center gap-3 py-3">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" class="avatar avatar-lg" alt="">
+          <div>
+            <div class="small text-body-secondary text-uppercase">Trainer</div>
+            <div class="h5 mb-0">misty_w</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <dl class="trainer-info mb-0">
+            <dt>Favorite Pokémon</dt><dd>Starmie</dd>
+            <dt>Bio</dt><dd>Water-type fan since day one.</dd>
+            <dt>Currently playing</dt><dd>Pokémon FireRed</dd>
+          </dl>
+
+          <hr>
+
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+            <h3 class="h5 mb-0">Kanto Classic</h3>
+          </div>
+          <p class="small text-body-secondary mb-2">Built for Pokémon FireRed</p>
+          <div class="team-grid rounded p-2">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charizard">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="Blastoise">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Venusaur">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" alt="Snorlax">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" alt="Dragonite">
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <small class="text-body-secondary">2 comments</small>
+          <a href="#/team" class="btn btn-sm btn-primary">View team</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM 3 -->
+    <div class="col">
+      <div class="card team-card h-100 shadow-sm">
+        <div class="card-header d-flex align-items-center gap-3 py-3">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png" class="avatar avatar-lg" alt="">
+          <div>
+            <div class="small text-body-secondary text-uppercase">Trainer</div>
+            <div class="h5 mb-0">brock_r</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <dl class="trainer-info mb-0">
+            <dt>Favorite Pokémon</dt><dd>Onix</dd>
+            <dt>Bio</dt><dd>Hello!</dd>
+            <dt>Currently playing</dt><dd>Pokémon Platinum</dd>
+          </dl>
+
+          <hr>
+
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+            <h3 class="h5 mb-0">Rain Dance Squad</h3>
+            <span class="badge bg-info">Mono-Water</span>
+          </div>
+          <p class="small text-body-secondary mb-2">Built for Pokémon Sapphire</p>
+          <div class="team-grid rounded p-2">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="Blastoise">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png" alt="Gyarados">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png" alt="Vaporeon">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" alt="Starmie">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" alt="Swampert">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png" alt="Milotic">
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <small class="text-body-secondary">12 comments</small>
+          <a href="#/team" class="btn btn-sm btn-primary">View team</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,2 +1,28 @@
-<h1>login</h1>
-<p>This is the login view.</p>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+    <div class="card shadow">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-1">Welcome back, trainer</h1>
+        <p class="text-body-secondary">Log in to build teams, comment and manage your profile.</p>
+
+        <form onsubmit="event.preventDefault();">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="loginEmail" autocomplete="email" placeholder="ash@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" autocomplete="current-password" required>
+          </div>
+          <br>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+          </div>
+        </form>
+
+        <hr class="my-4">
+        <p class="mb-0 text-center">No account yet? <a href="#/register">Register here</a></p>
+      </div>
+    </div>
+  </div>
+</div>
