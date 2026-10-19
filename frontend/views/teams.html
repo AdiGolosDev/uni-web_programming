@@ -1,2 +1,416 @@
-<h1>teams</h1>
-<p>This is the teams view.</p>
+<!-- TEAMS. Static draft: all content is hard-coded sample data.
+     Two tabs: "Your teams" (logged-in users) and "Public teams" (everyone).
+     Clicking any team opens the analysis page (#analysis). -->
+<h1 class="mb-1">Teams</h1>
+<p class="text-body-secondary mb-4">Click a team to see its weakness analysis.</p>
+
+<ul class="nav nav-tabs mb-4" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="yourTeamsTab" data-bs-toggle="tab" data-bs-target="#yourTeamsPane"
+            type="button" role="tab" aria-controls="yourTeamsPane" aria-selected="true">Your teams</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="publicTeamsTab" data-bs-toggle="tab" data-bs-target="#publicTeamsPane"
+            type="button" role="tab" aria-controls="publicTeamsPane" aria-selected="false">Public teams</button>
+  </li>
+</ul>
+
+<div class="tab-content">
+
+  <!-- ===================== YOUR TEAMS (trainers and admins) ===================== -->
+  <div class="tab-pane fade show active" id="yourTeamsPane" role="tabpanel" aria-labelledby="yourTeamsTab" tabindex="0">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <h2 class="h4 mb-0">Your teams <span class="badge text-bg-secondary">3</span></h2>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teamModal">+ New team</button>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Hoenn Nuzlocke</a></h3>
+              <span class="badge bg-success">Public</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Pokémon Emerald &middot; <span class="badge bg-info">Nuzlocke</span></p>
+            <div class="team-grid rounded p-2 mb-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png" alt="Sceptile">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png" alt="Blaziken">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" alt="Swampert">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" alt="Gardevoir">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png" alt="Aggron">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png" alt="Flygon">
+            </div>
+            <p class="card-text small mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">6 / 6 Pokémon</small>
+            <div class="d-flex gap-1">
+              <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#teamModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger position-relative z-2" data-bs-toggle="modal" data-bs-target="#deleteTeamModal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Kanto Speedrun</a></h3>
+              <span class="badge bg-secondary">Private</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Pokémon FireRed</p>
+            <div class="team-grid rounded p-2 mb-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charizard">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="Blastoise">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Venusaur">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" alt="Snorlax">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" alt="Dragonite">
+            </div>
+            <p class="card-text small mb-0">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">6 / 6 Pokémon</small>
+            <div class="d-flex gap-1">
+              <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#teamModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger position-relative z-2" data-bs-toggle="modal" data-bs-target="#deleteTeamModal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Crystal Draft</a></h3>
+              <span class="badge bg-secondary">Private</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Pokémon Crystal</p>
+            <div class="team-grid rounded p-2 mb-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png" alt="Typhlosion">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/196.png" alt="Espeon">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png" alt="Scizor">
+            </div>
+            <p class="card-text small mb-0">Duis aute irure dolor in reprehenderit in voluptate.</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">3 / 6 Pokémon</small>
+            <div class="d-flex gap-1">
+              <button type="button" class="btn btn-sm btn-outline-secondary position-relative z-2" data-bs-toggle="modal" data-bs-target="#teamModal">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger position-relative z-2" data-bs-toggle="modal" data-bs-target="#deleteTeamModal">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="small text-body-secondary mt-4 mb-0">Guests do not see this tab content: they get "Log in to see your teams" instead.</p>
+  </div>
+
+  <!-- ===================== PUBLIC TEAMS (everyone) ===================== -->
+  <div class="tab-pane fade" id="publicTeamsPane" role="tabpanel" aria-labelledby="publicTeamsTab" tabindex="0">
+
+    <form class="row g-2 mb-4" onsubmit="event.preventDefault();">
+      <div class="col-12 col-md-4">
+        <input type="search" class="form-control" placeholder="Search team or trainer..." aria-label="Search teams">
+      </div>
+      <div class="col-6 col-md-3">
+        <select class="form-select" aria-label="Filter by game">
+          <option selected>All games</option>
+          <option>Pokémon Red</option><option>Pokémon Blue</option><option>Pokémon Yellow</option>
+          <option>Pokémon Gold</option><option>Pokémon Silver</option><option>Pokémon Crystal</option>
+          <option>Pokémon Ruby</option><option>Pokémon Sapphire</option><option>Pokémon Emerald</option>
+          <option>Pokémon FireRed</option><option>Pokémon LeafGreen</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-3">
+        <input type="text" class="form-control" placeholder="Challenge (e.g. Nuzlocke)" aria-label="Filter by challenge">
+      </div>
+      <div class="col-12 col-md-2 d-grid">
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </div>
+    </form>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">ash_k</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Gastly</dd>
+              <dt>Bio</dt><dd>Chasing every badge, one Nuzlocke at a time.</dd>
+              <dt>Currently playing</dt><dd>Pokémon Emerald</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Hoenn Nuzlocke</a></h3>
+              <span class="badge bg-info">Nuzlocke</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon Emerald</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png" alt="Sceptile">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png" alt="Blaziken">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" alt="Swampert">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" alt="Gardevoir">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png" alt="Aggron">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png" alt="Flygon">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">7 comments</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">misty_w</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Starmie</dd>
+              <dt>Bio</dt><dd>Water-type fan since day one. Lorem ipsum dolor sit amet.</dd>
+              <dt>Currently playing</dt><dd>Pokémon FireRed</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Kanto Classic</a></h3>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon FireRed</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charizard">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="Blastoise">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Venusaur">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Pikachu">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" alt="Snorlax">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" alt="Dragonite">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">2 comments</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">brock_r</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Onix</dd>
+              <dt>Bio</dt><dd>Duis aute irure dolor in reprehenderit in voluptate.</dd>
+              <dt>Currently playing</dt><dd>Pokémon Platinum</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Rain Dance Squad</a></h3>
+              <span class="badge bg-info">Mono-Water</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon Sapphire</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" alt="Blastoise">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png" alt="Gyarados">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png" alt="Vaporeon">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" alt="Starmie">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" alt="Swampert">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png" alt="Milotic">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">12 comments</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">may_h</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Gengar</dd>
+              <dt>Bio</dt><dd>Spooky season all year round.</dd>
+              <dt>Currently playing</dt><dd>Pokémon Ruby</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Spooky Six</a></h3>
+              <span class="badge bg-info">Mono-Ghost</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon Ruby</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" alt="Gengar">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/200.png" alt="Misdreavus">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/354.png" alt="Banette">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/356.png" alt="Dusclops">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/302.png" alt="Sableye">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/292.png" alt="Shedinja">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">4 comments</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">red_m</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Typhlosion</dd>
+              <dt>Bio</dt><dd>Ut enim ad minim veniam, quis nostrud.</dd>
+              <dt>Currently playing</dt><dd>Pokémon Crystal</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Johto Starters</a></h3>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon Crystal</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/154.png" alt="Meganium">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png" alt="Typhlosion">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/160.png" alt="Feraligatr">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/181.png" alt="Ampharos">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/196.png" alt="Espeon">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png" alt="Scizor">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">1 comment</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card team-card h-100 shadow-sm">
+          <div class="card-header d-flex align-items-center gap-3 py-3">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/373.png" class="avatar avatar-lg" alt="">
+            <div><div class="small text-body-secondary text-uppercase">Trainer</div><div class="h5 mb-0">dawn_s</div></div>
+          </div>
+          <div class="card-body">
+            <dl class="trainer-info mb-0">
+              <dt>Favorite Pokémon</dt><dd>Salamence</dd>
+              <dt>Bio</dt><dd>Hardcore runs only. Lorem ipsum dolor sit amet.</dd>
+              <dt>Currently playing</dt><dd>Pokémon Emerald</dd>
+            </dl>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+              <h3 class="h5 mb-0"><a href="#analysis" class="stretched-link text-decoration-none text-reset">Hardcore Hoenn</a></h3>
+              <span class="badge bg-info">Hardcore Nuzlocke</span>
+            </div>
+            <p class="small text-body-secondary mb-2">Built for Pokémon Emerald</p>
+            <div class="team-grid rounded p-2">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/373.png" alt="Salamence">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/376.png" alt="Metagross">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png" alt="Milotic">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png" alt="Tyranitar">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" alt="Gardevoir">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png" alt="Flygon">
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <small class="text-body-secondary">9 comments</small>
+            <span class="btn btn-sm btn-primary">Analyze</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <nav aria-label="Public teams pages" class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled"><a class="page-link" href="#teams">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#teams">1</a></li>
+        <li class="page-item"><a class="page-link" href="#teams">2</a></li>
+        <li class="page-item"><a class="page-link" href="#teams">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- CREATE / EDIT TEAM modal (the six Pokémon are chosen on the analysis page) -->
+<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form onsubmit="event.preventDefault();">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="teamModalLabel">Team details</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="tmName" class="form-label">Team name</label>
+            <input type="text" class="form-control" id="tmName" maxlength="100" value="Hoenn Nuzlocke" required>
+          </div>
+          <div class="mb-3">
+            <label for="tmGame" class="form-label">Game</label>
+            <select class="form-select" id="tmGame" required>
+              <option>Pokémon Red</option><option>Pokémon Blue</option><option>Pokémon Yellow</option>
+              <option>Pokémon Gold</option><option>Pokémon Silver</option><option>Pokémon Crystal</option>
+              <option>Pokémon Ruby</option><option>Pokémon Sapphire</option><option selected>Pokémon Emerald</option>
+              <option>Pokémon FireRed</option><option>Pokémon LeafGreen</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="tmChallenge" class="form-label">Challenge <span class="text-body-secondary">(optional)</span></label>
+            <input type="text" class="form-control" id="tmChallenge" maxlength="100" placeholder="e.g. Nuzlocke, Mono-Water" value="Nuzlocke">
+          </div>
+          <div class="mb-3">
+            <label for="tmDescription" class="form-label">Description <span class="text-body-secondary">(optional)</span></label>
+            <textarea class="form-control" id="tmDescription" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="tmPublic" checked>
+            <label class="form-check-label" for="tmPublic">Public (everyone can see and comment on this team)</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save team</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE TEAM confirmation modal -->
+<div class="modal fade" id="deleteTeamModal" tabindex="-1" aria-labelledby="deleteTeamLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="deleteTeamLabel">Delete this team?</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">The team, its Pokémon slots and all comments on it will be permanently removed.</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete team</button>
+      </div>
+    </div>
+  </div>
+</div>

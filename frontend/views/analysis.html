@@ -1,0 +1,267 @@
+<!-- TEAM ANALYSIS. Static draft: shows ONE sample team. Later the same page is filled with whichever team was clicked.
+     Contains: team info, members, weakness analysis and comments.
+     Owner-only parts (the "Change" buttons) are hidden for other users and guests. -->
+<a href="#teams" class="btn btn-sm btn-outline-secondary mb-3">&larr; Back to teams</a>
+
+<div class="row g-4">
+
+  <!-- SIDE COLUMN: trainer + team info (first on phones, right-hand side on desktop) -->
+  <div class="col-lg-4 order-lg-2">
+
+    <div class="card team-card mb-4">
+      <div class="card-header d-flex align-items-center gap-3 py-3">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png" class="avatar avatar-lg" alt="">
+        <div>
+          <div class="small text-body-secondary text-uppercase">Trainer</div>
+          <div class="h5 mb-0">ash_k</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <dl class="trainer-info mb-0">
+          <dt>Favorite Pokémon</dt><dd>Gastly</dd>
+          <dt>Bio</dt><dd>Chasing every badge, one Nuzlocke at a time.</dd>
+          <dt>Currently playing</dt><dd>Pokémon Emerald</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h2 class="h6 mb-0">About this team</h2></div>
+      <div class="card-body">
+        <dl class="trainer-info mb-0">
+          <dt>Game</dt><dd>Pokémon Emerald</dd>
+          <dt>Challenge</dt><dd><span class="badge bg-info">Nuzlocke</span></dd>
+          <dt>Visibility</dt><dd>Public</dd>
+          <dt>Created</dt><dd>12 Oct 2026</dd>
+          <dt>Description</dt><dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MAIN COLUMN -->
+  <div class="col-lg-8 order-lg-1">
+
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <h1 class="mb-0">Hoenn Nuzlocke</h1>
+      <span class="badge bg-info">Nuzlocke</span>
+    </div>
+
+    <!-- SUMMARY TILES -->
+    <div class="row row-cols-2 row-cols-md-4 g-3 mb-4 text-center">
+      <div class="col"><div class="card h-100"><div class="card-body py-3"><div class="display-6">6 / 6</div><small class="text-body-secondary">Pokémon</small></div></div></div>
+      <div class="col"><div class="card h-100 border-danger"><div class="card-body py-3"><div class="display-6 text-danger">4</div><small class="text-body-secondary">Risky types</small></div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-body py-3"><div class="display-6">4</div><small class="text-body-secondary">&times;4 weaknesses</small></div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-body py-3"><div class="display-6">3</div><small class="text-body-secondary">Immunities</small></div></div></div>
+    </div>
+
+    <!-- MEMBERS: one card per slot (team_members table) -->
+    <h2 class="h5">Team members</h2>
+    <div class="row row-cols-2 row-cols-md-3 g-3 mb-2">
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 1</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png" class="sprite-md" alt="Sceptile">
+            <h3 class="h6 mb-0">Leafy</h3>
+            <small class="text-body-secondary d-block mb-2">Sceptile</small>
+            <span class="badge type-badge type-grass">Grass</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-fire">Fire</span> <span class="badge type-badge type-ice">Ice</span> <span class="badge type-badge type-poison">Poison</span> <span class="badge type-badge type-flying">Flying</span> <span class="badge type-badge type-bug">Bug</span>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 2</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png" class="sprite-md" alt="Blaziken">
+            <h3 class="h6 mb-0">Blaze</h3>
+            <small class="text-body-secondary d-block mb-2">Blaziken</small>
+            <span class="badge type-badge type-fire">Fire</span> <span class="badge type-badge type-fighting">Fighting</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-water">Water</span> <span class="badge type-badge type-ground">Ground</span> <span class="badge type-badge type-flying">Flying</span> <span class="badge type-badge type-psychic">Psychic</span>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 3</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png" class="sprite-md" alt="Swampert">
+            <h3 class="h6 mb-0">Wave</h3>
+            <small class="text-body-secondary d-block mb-2">Swampert</small>
+            <span class="badge type-badge type-water">Water</span> <span class="badge type-badge type-ground">Ground</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-grass">Grass</span> <strong class="small">&times;4</strong>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 4</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" class="sprite-md" alt="Gardevoir">
+            <h3 class="h6 mb-0">Gardy</h3>
+            <small class="text-body-secondary d-block mb-2">Gardevoir</small>
+            <span class="badge type-badge type-psychic">Psychic</span> <span class="badge type-badge type-fairy">Fairy</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-ghost">Ghost</span> <span class="badge type-badge type-poison">Poison</span> <span class="badge type-badge type-steel">Steel</span>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 5</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png" class="sprite-md" alt="Aggron">
+            <h3 class="h6 mb-0">Rocky</h3>
+            <small class="text-body-secondary d-block mb-2">Aggron</small>
+            <span class="badge type-badge type-steel">Steel</span> <span class="badge type-badge type-rock">Rock</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-fighting">Fighting</span> <strong class="small">&times;4</strong> <span class="badge type-badge type-ground">Ground</span> <strong class="small">&times;4</strong> <span class="badge type-badge type-water">Water</span>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card pokemon-card text-center h-100">
+          <div class="card-body">
+            <span class="badge text-bg-secondary mb-1">Slot 6</span><br>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png" class="sprite-md" alt="Flygon">
+            <h3 class="h6 mb-0">Dune</h3>
+            <small class="text-body-secondary d-block mb-2">Flygon</small>
+            <span class="badge type-badge type-ground">Ground</span> <span class="badge type-badge type-dragon">Dragon</span>
+            <div class="small text-body-secondary mt-2">Weak to</div>
+            <span class="badge type-badge type-ice">Ice</span> <strong class="small">&times;4</strong> <span class="badge type-badge type-dragon">Dragon</span> <span class="badge type-badge type-fairy">Fairy</span>
+          </div>
+          <div class="card-footer"><button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#slotModal">Change</button></div>
+        </div>
+      </div>
+    </div>
+    <p class="small text-body-secondary mb-4">The "Change" buttons are only shown to the team's owner.</p>
+
+    <!-- WEAKNESS ANALYSIS: for each attacking type, how many members are weak / resistant / immune.
+         The numbers are calculated from the type chart in Milestone 3; Highcharts charts come in Milestone 4. -->
+    <h2 class="h5">Weakness analysis</h2>
+    <div class="alert alert-warning">
+      <strong>Biggest risks:</strong> Water, Ground, Flying and Ghost hit more members than the team can resist.
+      Four weaknesses are &times;4: Grass (Wave), Ice (Dune), Fighting and Ground (both Rocky).
+    </div>
+    <div class="table-responsive mb-4">
+      <table class="table table-sm align-middle text-center">
+        <thead>
+          <tr>
+            <th class="text-start">Attacking type</th>
+            <th>Weak</th>
+            <th>Resist</th>
+            <th>Immune</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="text-start"><span class="badge type-badge type-normal">Normal</span></td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-fire">Fire</span></td><td>1</td><td>3</td><td>0</td></tr>
+          <tr class="table-danger"><td class="text-start"><span class="badge type-badge type-water">Water</span></td><td>2</td><td>1</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-electric">Electric</span></td><td>0</td><td>1</td><td>2</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-grass">Grass</span></td><td>1</td><td>2</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-ice">Ice</span></td><td>2</td><td>2</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-fighting">Fighting</span></td><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-poison">Poison</span></td><td>2</td><td>2</td><td>1</td></tr>
+          <tr class="table-danger"><td class="text-start"><span class="badge type-badge type-ground">Ground</span></td><td>2</td><td>1</td><td>0</td></tr>
+          <tr class="table-danger"><td class="text-start"><span class="badge type-badge type-flying">Flying</span></td><td>2</td><td>1</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-psychic">Psychic</span></td><td>1</td><td>2</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-bug">Bug</span></td><td>1</td><td>2</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-rock">Rock</span></td><td>0</td><td>3</td><td>0</td></tr>
+          <tr class="table-danger"><td class="text-start"><span class="badge type-badge type-ghost">Ghost</span></td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-dragon">Dragon</span></td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-dark">Dark</span></td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-steel">Steel</span></td><td>1</td><td>2</td><td>0</td></tr>
+          <tr><td class="text-start"><span class="badge type-badge type-fairy">Fairy</span></td><td>1</td><td>1</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p class="small text-body-secondary mb-0">Highlighted rows: more members are weak to that type than resist or are immune to it.</p>
+    </div>
+
+    <!-- COMMENTS (comments table). Everyone can read; only logged-in users can post. -->
+    <h2 class="h5">Comments <span class="badge text-bg-secondary">3</span></h2>
+
+    <ul class="list-unstyled">
+      <li class="d-flex gap-3 mb-3">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png" class="avatar avatar-lg flex-shrink-0" alt="">
+        <div class="flex-grow-1">
+          <div><strong>misty_w</strong> <small class="text-body-secondary">&middot; 13 Oct 2026</small></div>
+          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Great team, but watch out for Ice moves!</p>
+        </div>
+      </li>
+      <li class="d-flex gap-3 mb-3">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png" class="avatar avatar-lg flex-shrink-0" alt="">
+        <div class="flex-grow-1">
+          <div><strong>brock_r</strong> <small class="text-body-secondary">&middot; 13 Oct 2026</small></div>
+          <p class="mb-0">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </div>
+      </li>
+      <!-- A comment written by the logged-in user: Edit / Delete are only shown on your own comments (and to admins) -->
+      <li class="d-flex gap-3 mb-3">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png" class="avatar avatar-lg flex-shrink-0" alt="">
+        <div class="flex-grow-1">
+          <div><strong>you</strong> <small class="text-body-secondary">&middot; 14 Oct 2026</small></div>
+          <p class="mb-1">Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+          <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+        </div>
+      </li>
+    </ul>
+
+    <form onsubmit="event.preventDefault();">
+      <label for="commentBody" class="form-label">Add a comment</label>
+      <textarea class="form-control mb-2" id="commentBody" rows="3" maxlength="1000" placeholder="Write something nice..." required></textarea>
+      <button type="submit" class="btn btn-primary">Post comment</button>
+      <span class="small text-body-secondary ms-2">Guests see "Log in to comment" instead of this form.</span>
+    </form>
+
+  </div>
+</div>
+
+<!-- CHANGE SLOT modal: choose the Pokémon and optional nickname for one slot (team_members table) -->
+<div class="modal fade" id="slotModal" tabindex="-1" aria-labelledby="slotModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form onsubmit="event.preventDefault();">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="slotModalLabel">Change slot 1</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="slotPokemon" class="form-label">Pokémon</label>
+            <select class="form-select" id="slotPokemon" required>
+              <option selected>Sceptile</option>
+              <option>Blaziken</option>
+              <option>Swampert</option>
+              <option>Gardevoir</option>
+              <option>Aggron</option>
+              <option>Flygon</option>
+            </select>
+            <div class="form-text">Only Pokémon that exist in this team's game are listed.</div>
+          </div>
+          <div class="mb-3">
+            <label for="slotNickname" class="form-label">Nickname <span class="text-body-secondary">(optional)</span></label>
+            <input type="text" class="form-control" id="slotNickname" maxlength="50" value="Leafy">
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Remove from team</button>
+          <div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
