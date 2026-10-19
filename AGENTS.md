@@ -57,7 +57,7 @@ docs/                ERD (ERD.md + erd.png), AI_LOG.md
 | `teams`             | `teams.html`                  | tabs: **Your teams** (trainer/admin), **Public teams** (everyone) | static draft                      |
 | `analysis`          | `analysis.html`               | everyone; owner-only Change buttons                               | static draft (one sample team)    |
 | `profile`           | `profile.html`                | trainer, admin                                                    | undecided / optional              |
-| `administration`    | `administration.html`         | admin only (tabs: Pokémon, Games, Type chart, Users, Comments)    | not built yet                     |
+| `administration`    | `admin.html`                  | admin only (tabs: Users, Pokémon, Teams, Games, Comments, Types, Type chart, Team members) | static mockup; access is not enforced yet |
 | `login`, `register` | `login.html`, `register.html` | guests                                                            | static draft                      |
 | `error_404`         | `404.html`                    | everyone                                                          | done                              |
 

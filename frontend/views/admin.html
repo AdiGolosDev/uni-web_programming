@@ -1,0 +1,361 @@
+<div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
+  <div>
+    <h1 class="mb-1">Administration</h1>
+    <p class="text-body-secondary mb-0">Manage the PokéPlanner catalog, accounts and community content.</p>
+  </div>
+  <span class="badge text-bg-warning">Admin users only</span>
+</div>
+
+<div class="alert alert-info" role="alert">
+  <strong>Static page preview:</strong> this page is intended for admin users. It is currently a visual mockup:
+  access is not restricted and changes made here are not saved.
+</div>
+
+<ul class="nav nav-tabs flex-wrap mb-4" id="adminTabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="usersTab" data-bs-toggle="tab" data-bs-target="#usersPane"
+            type="button" role="tab" aria-controls="usersPane" aria-selected="true">Users</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pokemonTab" data-bs-toggle="tab" data-bs-target="#pokemonPane"
+            type="button" role="tab" aria-controls="pokemonPane" aria-selected="false">Pokémon</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="teamsTab" data-bs-toggle="tab" data-bs-target="#teamsPane"
+            type="button" role="tab" aria-controls="teamsPane" aria-selected="false">Teams</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="gamesTab" data-bs-toggle="tab" data-bs-target="#gamesPane"
+            type="button" role="tab" aria-controls="gamesPane" aria-selected="false">Games</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="commentsTab" data-bs-toggle="tab" data-bs-target="#commentsPane"
+            type="button" role="tab" aria-controls="commentsPane" aria-selected="false">Comments</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="typesTab" data-bs-toggle="tab" data-bs-target="#typesPane"
+            type="button" role="tab" aria-controls="typesPane" aria-selected="false">Types</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="effectivenessTab" data-bs-toggle="tab" data-bs-target="#effectivenessPane"
+            type="button" role="tab" aria-controls="effectivenessPane" aria-selected="false">Type chart</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="membersTab" data-bs-toggle="tab" data-bs-target="#membersPane"
+            type="button" role="tab" aria-controls="membersPane" aria-selected="false">Team members</button>
+  </li>
+</ul>
+
+<div class="tab-content" id="adminTabContent">
+  <section class="tab-pane fade show active" id="usersPane" role="tabpanel" aria-labelledby="usersTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Users</h2>
+        <p class="text-body-secondary mb-0">Manage accounts, roles and profile information.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add user</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Username</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Joined</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ash_k</td><td>ash@example.com</td><td><span class="badge text-bg-secondary">trainer</span></td><td>2026-09-12</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit ash_k" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete ash_k" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>misty_w</td><td>misty@example.com</td><td><span class="badge text-bg-secondary">trainer</span></td><td>2026-09-18</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit misty_w" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete misty_w" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>admin_adi</td><td>admin@example.com</td><td><span class="badge text-bg-info">admin</span></td><td>2026-08-30</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit admin_adi" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete admin_adi" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="pokemonPane" role="tabpanel" aria-labelledby="pokemonTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Pokémon</h2>
+        <p class="text-body-secondary mb-0">Maintain species, types and base stats in the catalog.</p>
+      </div>
+      <div class="d-flex flex-wrap gap-2">
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Import from PokéAPI</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add Pokémon</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Generation</th><th scope="col">Types</th><th scope="col">Base stats</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td><td>Bulbasaur</td><td>1</td><td>Grass / Poison</td><td>318</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Bulbasaur" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Bulbasaur" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>025</td><td>Pikachu</td><td>1</td><td>Electric</td><td>320</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Pikachu" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Pikachu" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>252</td><td>Treecko</td><td>3</td><td>Grass</td><td>310</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Treecko" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Treecko" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="teamsPane" role="tabpanel" aria-labelledby="teamsTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Teams</h2>
+        <p class="text-body-secondary mb-0">Review team ownership, visibility and team-member slots.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add team</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Team</th><th scope="col">Owner</th><th scope="col">Game</th><th scope="col">Challenge</th><th scope="col">Visibility</th><th scope="col">Members</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hoenn Nuzlocke</td><td>ash_k</td><td>Pokémon Emerald</td><td>Nuzlocke</td><td>Public</td><td>6 / 6</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Hoenn Nuzlocke" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Hoenn Nuzlocke" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Kanto Speedrun</td><td>misty_w</td><td>Pokémon FireRed</td><td>—</td><td>Private</td><td>6 / 6</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Kanto Speedrun" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Kanto Speedrun" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="gamesPane" role="tabpanel" aria-labelledby="gamesTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Games</h2>
+        <p class="text-body-secondary mb-0">Manage the games available when trainers create teams.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add game</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Name</th><th scope="col">Generation</th><th scope="col">Release year</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pokémon Red</td><td>1</td><td>1996</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Pokémon Red" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Pokémon Red" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Pokémon Emerald</td><td>3</td><td>2004</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Pokémon Emerald" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Pokémon Emerald" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="commentsPane" role="tabpanel" aria-labelledby="commentsTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Comments</h2>
+        <p class="text-body-secondary mb-0">Review and moderate comments on public teams.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add comment</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Author</th><th scope="col">Team</th><th scope="col">Comment</th><th scope="col">Posted</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>misty_w</td><td>Hoenn Nuzlocke</td><td>Great coverage for the late-game gyms!</td><td>2026-10-02</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit comment by misty_w" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete comment by misty_w" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>ash_k</td><td>Kanto Speedrun</td><td>Testing a different starter route this time.</td><td>2026-10-04</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit comment by ash_k" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete comment by ash_k" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="typesPane" role="tabpanel" aria-labelledby="typesTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Types</h2>
+        <p class="text-body-secondary mb-0">Maintain the set of Pokémon types referenced by the catalog and type chart.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add type</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">ID</th><th scope="col">Type name</th><th scope="col">Pokémon using type</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Normal</td><td>24</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Normal type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Normal type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td><td>Fire</td><td>12</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Fire type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Fire type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td><td>Water</td><td>30</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Water type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Water type" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="effectivenessPane" role="tabpanel" aria-labelledby="effectivenessTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Type chart</h2>
+        <p class="text-body-secondary mb-0">Edit attacker-versus-defender multipliers. Each row is identified by both types.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add matchup</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Attacking type</th><th scope="col">Defending type</th><th scope="col">Multiplier</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fire</td><td>Grass</td><td>2×</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Fire versus Grass effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Fire versus Grass effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Electric</td><td>Ground</td><td>0×</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Electric versus Ground effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Electric versus Ground effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Water</td><td>Fire</td><td>2×</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Water versus Fire effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Water versus Fire effectiveness" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-pane fade" id="membersPane" role="tabpanel" aria-labelledby="membersTab" tabindex="0">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <h2 class="h4 mb-1">Team members</h2>
+        <p class="text-body-secondary mb-0">Manage Pokémon assigned to team slots. Duplicate Pokémon in a team are allowed.</p>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Add team member</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr><th scope="col">Team</th><th scope="col">Slot</th><th scope="col">Pokémon</th><th scope="col">Nickname</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hoenn Nuzlocke</td><td>1</td><td>Sceptile</td><td>Leaf</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Hoenn Nuzlocke slot 1" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Hoenn Nuzlocke slot 1" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Hoenn Nuzlocke</td><td>2</td><td>Blaziken</td><td>Ember</td>
+            <td class="text-nowrap">
+              <button type="button" class="btn btn-sm btn-outline-secondary" aria-label="Edit Hoenn Nuzlocke slot 2" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Edit</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" aria-label="Delete Hoenn Nuzlocke slot 2" data-bs-toggle="modal" data-bs-target="#adminActionNotice">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div class="modal fade" id="adminActionNotice" tabindex="-1" aria-labelledby="adminActionNoticeLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="adminActionNoticeLabel">Static mockup control</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        This control is a visual placeholder. It does not create, edit, import or delete data; those actions will be connected to the protected backend later.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
