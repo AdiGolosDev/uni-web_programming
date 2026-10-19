@@ -1,0 +1,8 @@
+{
+  "name": "adigolos/pokeplanner",
+  "description": "A Pokemon team builder and weakness analyzer for a web programming course",
+  "type": "project",
+  "require": {
+    "php": ">=8.2"
+  }
+}

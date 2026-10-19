@@ -1,2 +1,199 @@
-<h1>pokedex</h1>
-<p>This is the pokedex view.</p>
+<!-- POKÉDEX (public). Static draft: all content is hard-coded sample data.
+     One sortable, searchable table (DataTables is started in js/app.js).
+     Clicking a row opens the details modal. Everyone sees the stored stats;
+     the live PokéAPI details inside the modal are for logged-in trainers only. -->
+<h1 class="mb-1">Pokédex</h1>
+<p class="text-body-secondary mb-4">
+  Click a Pokémon to see more details.
+  Live details from PokéAPI are a <strong>trainer-only</strong> feature &ndash; guests need to log in.
+</p>
+
+<!-- Extra filter: the built-in DataTables search box handles name / number, this one filters the Type column -->
+<div class="row g-2 mb-3">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <label for="pokedexTypeFilter" class="visually-hidden">Filter by type</label>
+    <select class="form-select" id="pokedexTypeFilter">
+      <option value="" selected>All types</option>
+      <option>Normal</option><option>Fire</option><option>Water</option><option>Electric</option><option>Grass</option><option>Ice</option>
+      <option>Fighting</option><option>Poison</option><option>Ground</option><option>Flying</option><option>Psychic</option><option>Bug</option>
+      <option>Rock</option><option>Ghost</option><option>Dragon</option><option>Dark</option><option>Steel</option><option>Fairy</option>
+    </select>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table id="pokedexTable" class="table table-hover align-middle w-100">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Pokémon</th>
+        <th>Type</th>
+        <th class="text-end">Total</th>
+        <th class="text-end">HP</th>
+        <th class="text-end">Atk</th>
+        <th class="text-end">Def</th>
+        <th class="text-end">SpA</th>
+        <th class="text-end">SpD</th>
+        <th class="text-end">Spe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>001</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" class="sprite-sm me-2" alt=""><strong>Bulbasaur</strong></td>
+        <td><span class="badge type-badge type-grass">Grass</span> <span class="badge type-badge type-poison">Poison</span></td>
+        <td class="text-end fw-bold">318</td><td class="text-end">45</td><td class="text-end">49</td><td class="text-end">49</td><td class="text-end">65</td><td class="text-end">65</td><td class="text-end">45</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>002</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" class="sprite-sm me-2" alt=""><strong>Ivysaur</strong></td>
+        <td><span class="badge type-badge type-grass">Grass</span> <span class="badge type-badge type-poison">Poison</span></td>
+        <td class="text-end fw-bold">405</td><td class="text-end">60</td><td class="text-end">62</td><td class="text-end">63</td><td class="text-end">80</td><td class="text-end">80</td><td class="text-end">60</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>003</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" class="sprite-sm me-2" alt=""><strong>Venusaur</strong></td>
+        <td><span class="badge type-badge type-grass">Grass</span> <span class="badge type-badge type-poison">Poison</span></td>
+        <td class="text-end fw-bold">525</td><td class="text-end">80</td><td class="text-end">82</td><td class="text-end">83</td><td class="text-end">100</td><td class="text-end">100</td><td class="text-end">80</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>004</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" class="sprite-sm me-2" alt=""><strong>Charmander</strong></td>
+        <td><span class="badge type-badge type-fire">Fire</span></td>
+        <td class="text-end fw-bold">309</td><td class="text-end">39</td><td class="text-end">52</td><td class="text-end">43</td><td class="text-end">60</td><td class="text-end">50</td><td class="text-end">65</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>005</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" class="sprite-sm me-2" alt=""><strong>Charmeleon</strong></td>
+        <td><span class="badge type-badge type-fire">Fire</span></td>
+        <td class="text-end fw-bold">405</td><td class="text-end">58</td><td class="text-end">64</td><td class="text-end">58</td><td class="text-end">80</td><td class="text-end">65</td><td class="text-end">80</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>006</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" class="sprite-sm me-2" alt=""><strong>Charizard</strong></td>
+        <td><span class="badge type-badge type-fire">Fire</span> <span class="badge type-badge type-flying">Flying</span></td>
+        <td class="text-end fw-bold">534</td><td class="text-end">78</td><td class="text-end">84</td><td class="text-end">78</td><td class="text-end">109</td><td class="text-end">85</td><td class="text-end">100</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>007</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" class="sprite-sm me-2" alt=""><strong>Squirtle</strong></td>
+        <td><span class="badge type-badge type-water">Water</span></td>
+        <td class="text-end fw-bold">314</td><td class="text-end">44</td><td class="text-end">48</td><td class="text-end">65</td><td class="text-end">50</td><td class="text-end">64</td><td class="text-end">43</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>008</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png" class="sprite-sm me-2" alt=""><strong>Wartortle</strong></td>
+        <td><span class="badge type-badge type-water">Water</span></td>
+        <td class="text-end fw-bold">405</td><td class="text-end">59</td><td class="text-end">63</td><td class="text-end">80</td><td class="text-end">65</td><td class="text-end">80</td><td class="text-end">58</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>009</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png" class="sprite-sm me-2" alt=""><strong>Blastoise</strong></td>
+        <td><span class="badge type-badge type-water">Water</span></td>
+        <td class="text-end fw-bold">530</td><td class="text-end">79</td><td class="text-end">83</td><td class="text-end">100</td><td class="text-end">85</td><td class="text-end">105</td><td class="text-end">78</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>025</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="sprite-sm me-2" alt=""><strong>Pikachu</strong></td>
+        <td><span class="badge type-badge type-electric">Electric</span></td>
+        <td class="text-end fw-bold">320</td><td class="text-end">35</td><td class="text-end">55</td><td class="text-end">40</td><td class="text-end">50</td><td class="text-end">50</td><td class="text-end">90</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>026</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png" class="sprite-sm me-2" alt=""><strong>Raichu</strong></td>
+        <td><span class="badge type-badge type-electric">Electric</span></td>
+        <td class="text-end fw-bold">485</td><td class="text-end">60</td><td class="text-end">90</td><td class="text-end">55</td><td class="text-end">90</td><td class="text-end">80</td><td class="text-end">110</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>039</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png" class="sprite-sm me-2" alt=""><strong>Jigglypuff</strong></td>
+        <td><span class="badge type-badge type-normal">Normal</span> <span class="badge type-badge type-fairy">Fairy</span></td>
+        <td class="text-end fw-bold">270</td><td class="text-end">115</td><td class="text-end">45</td><td class="text-end">20</td><td class="text-end">45</td><td class="text-end">25</td><td class="text-end">20</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>094</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" class="sprite-sm me-2" alt=""><strong>Gengar</strong></td>
+        <td><span class="badge type-badge type-ghost">Ghost</span> <span class="badge type-badge type-poison">Poison</span></td>
+        <td class="text-end fw-bold">500</td><td class="text-end">60</td><td class="text-end">65</td><td class="text-end">60</td><td class="text-end">130</td><td class="text-end">75</td><td class="text-end">110</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>133</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png" class="sprite-sm me-2" alt=""><strong>Eevee</strong></td>
+        <td><span class="badge type-badge type-normal">Normal</span></td>
+        <td class="text-end fw-bold">325</td><td class="text-end">55</td><td class="text-end">55</td><td class="text-end">50</td><td class="text-end">45</td><td class="text-end">65</td><td class="text-end">55</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>143</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" class="sprite-sm me-2" alt=""><strong>Snorlax</strong></td>
+        <td><span class="badge type-badge type-normal">Normal</span></td>
+        <td class="text-end fw-bold">540</td><td class="text-end">160</td><td class="text-end">110</td><td class="text-end">65</td><td class="text-end">65</td><td class="text-end">110</td><td class="text-end">30</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>149</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" class="sprite-sm me-2" alt=""><strong>Dragonite</strong></td>
+        <td><span class="badge type-badge type-dragon">Dragon</span> <span class="badge type-badge type-flying">Flying</span></td>
+        <td class="text-end fw-bold">600</td><td class="text-end">91</td><td class="text-end">134</td><td class="text-end">95</td><td class="text-end">100</td><td class="text-end">100</td><td class="text-end">80</td>
+      </tr>
+      <tr role="button" tabindex="0" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        <td>150</td>
+        <td><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" class="sprite-sm me-2" alt=""><strong>Mewtwo</strong></td>
+        <td><span class="badge type-badge type-psychic">Psychic</span></td>
+        <td class="text-end fw-bold">680</td><td class="text-end">106</td><td class="text-end">110</td><td class="text-end">90</td><td class="text-end">154</td><td class="text-end">90</td><td class="text-end">130</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- DETAILS MODAL: full screen on phones (modal-fullscreen-sm-down). Static: always shows Pikachu. -->
+<div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-sm-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h4" id="pokemonModalLabel">Pikachu <small class="text-body-secondary">#025</small></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-md-5 text-center">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="sprite-lg" alt="Pikachu">
+            <div class="mt-2"><span class="badge type-badge type-electric">Electric</span></div>
+            <p class="small text-body-secondary mt-2 mb-0">Generation 1</p>
+          </div>
+          <div class="col-md-7">
+            <!-- STORED DATA (from our own database). In Milestone 4 a Highcharts radar chart replaces these bars. -->
+            <h3 class="h6">Base stats</h3>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">HP</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 23%"></div></div><span class="ms-2 small">35</span></div>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">Attack</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 37%"></div></div><span class="ms-2 small">55</span></div>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">Defense</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 27%"></div></div><span class="ms-2 small">40</span></div>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">Sp. Atk</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 33%"></div></div><span class="ms-2 small">50</span></div>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">Sp. Def</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 33%"></div></div><span class="ms-2 small">50</span></div>
+            <div class="d-flex align-items-center mb-1"><span class="small" style="width: 70px;">Speed</span><div class="progress flex-grow-1" style="height: 10px;"><div class="progress-bar" style="width: 60%"></div></div><span class="ms-2 small">90</span></div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- EXTERNAL API FEATURE (planned): logged-in users click "Show more details"; the backend calls PokéAPI. -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+          <h3 class="h6 mb-0">More details <span class="badge bg-info">Live from PokéAPI</span></h3>
+          <button type="button" class="btn btn-sm btn-outline-primary">Show more details</button>
+        </div>
+        <div class="border rounded p-3">
+          <dl class="row mb-0 small">
+            <dt class="col-sm-3">Height</dt><dd class="col-sm-9">0.4 m</dd>
+            <dt class="col-sm-3">Weight</dt><dd class="col-sm-9">6.0 kg</dd>
+            <dt class="col-sm-3">Abilities</dt><dd class="col-sm-9">Static, Lightning Rod</dd>
+            <dt class="col-sm-3">Description</dt><dd class="col-sm-9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</dd>
+            <dt class="col-sm-3">Evolution</dt><dd class="col-sm-9 mb-0">Pichu &rarr; Pikachu &rarr; Raichu</dd>
+          </dl>
+        </div>
+        <div class="alert alert-secondary mt-3 mb-0 small">
+          Guests see "Log in to see more details" instead of the button. If PokéAPI is unavailable, this panel shows "Details temporarily unavailable" and the stats above keep working.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
