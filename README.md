@@ -86,7 +86,7 @@ ERD: draft version located in docs/erd.png
 
 ## External API
 
-**PokéAPI** (https://pokeapi.co), free and without an API key
+**[PokéAPI](https://pokeapi.co)** - free and without an API key
 
 Everything the application's own logic needs (name, types, base stats, generation, sprite) is stored in the project's database, so the Pokédex, teams and weakness analysis never depend on the API. Extra information is fetched live through the backend when a logged-in user clicks **Show more details** on a Pokémon: height, weight, abilities, Pokédex description, evolution chain and official artwork. Guests see a "log in to see more details" prompt instead. Admins can also import a Pokémon by name or number to prefill the catalog form.
 
