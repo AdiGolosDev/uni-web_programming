@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PokéPlanner</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"> 
+  <link rel="stylesheet" href="css/spapp.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#home">PokéPlanner</a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNav"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto" id="main-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#pokedex">Pokédex</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#teams">Teams</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#administration">Admin</a>
+          </li>
+        </ul>
+
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-light" href="#login">Log in</a>
+          <a class="btn btn-light" href="#register">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="spapp" role="main" class="container my-4 flex-grow-1">
+    <section id="login" data-load="login.html"></section>
+    <section id="register" data-load="register.html"></section>
+    <section id="pokedex" data-load="pokedex.html"></section>
+    <section id="teams" data-load="teams.html"></section>
+    <section id="analysis" data-load="analysis.html"></section>
+    <section id="administration" data-load="admin.html"></section>
+    <section id="error_404" data-load="404.html"></section>
+    <section id="home" data-load="home.html"></section>
+  </main>
+
+  <footer class="mt-auto py-4 border-top border-secondary">
+    <div class="container d-flex flex-column flex-md-row
+                justify-content-between align-items-center gap-3">
+
+      <div class="text-center text-md-start">
+        <p class="mb-1">
+          &copy; 2026 Adi Golos
+        </p>
+        <small class="text-body-secondary">
+          Built as a web programming course project at IBU.
+        </small>
+      </div>
+
+      <a href="https://github.com/AdiGolosDev"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="text-decoration-none text-light d-inline-flex
+                align-items-center gap-2"
+         aria-label="Visit Adi Golos on GitHub">
+
+        <img src="assets/img/github.svg" width="24" height="24" alt="">
+
+        <span>AdiGolosDev</span>
+      </a>
+
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highcharts@11.4.8/highcharts.js"></script>
+
+  <script src="js/lib/jquery.spapp.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+<!-- http://localhost/uni-web_programming/frontend/# -->

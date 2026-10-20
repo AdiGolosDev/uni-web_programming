@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+    <div class="card shadow">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-1">Create your account</h1>
+        <p class="text-body-secondary">New accounts are always trainer accounts.</p>
+
+        <form onsubmit="event.preventDefault();">
+          <div class="mb-3">
+            <label for="regUsername" class="form-label">Username</label>
+            <input type="text" class="form-control" id="regUsername" autocomplete="username" minlength="3" maxlength="50" required>
+          </div>
+          <div class="mb-3">
+            <label for="regEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="regEmail" autocomplete="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="regPassword" autocomplete="new-password" minlength="8" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword2" class="form-label">Confirm password</label>
+            <input type="password" class="form-control" id="regPassword2" autocomplete="new-password" required>
+          </div>
+          <br>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+          </div>
+        </form>
+
+        <hr class="my-4">
+        <p class="mb-0 text-center">Already a trainer? <a href="#login">Log in</a></p>
+      </div>
+    </div>
+  </div>
+</div>
