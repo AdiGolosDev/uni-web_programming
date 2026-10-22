@@ -6,7 +6,7 @@ A Pokémon team builder and weakness analyzer. Build a team of up to 6 Pokémon 
 
 **Course:** Web Programming
 
-**Status:** Milestone 1 / 5 (draft).
+**Status:** Milestone 2 / 5 (draft).
 
 ---
 
