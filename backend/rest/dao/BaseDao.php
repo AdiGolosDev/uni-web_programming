@@ -55,6 +55,68 @@ class BaseDao {
     }
 
 
-        
+    // CRUD
+
+    public function get_all() {
+        return $this->query("SELECT * FROM {$this->table_name} ORDER BY {$this->pk()}");
+    }
+
+    public function get_by_id($id) {
+        return $this->query_unique("SELECT * FROM {$this->table_name} WHERE {$this->pk()} = :id", ['id' => $id]);
+    }
+
+    public function count_all() {
+        return (int) $this->query_unique("SELECT COUNT(*) AS total FROM {$this->table_name}")['total'];
+    }
+
+    public function add($entity) {
+        $entity = $this->only_columns($entity);
+        if (count($entity) === 0) {
+            throw new InvalidArgumentException("Nothing to insert into {$this->table_name}: no writable columns");
+        }
+        $columns = array_keys($entity);
+
+        $query = "INSERT INTO {$this->table_name} (" . implode(', ', $columns) . ")" . " VALUES (:" . implode(', :', $columns) . ")";
+        $this->execute($query, $entity);
+
+        if ($this->primary_key !== null) {
+            $entity[$this->primary_key] = (int) self::connection()->lastInsertId();
+        }
+        return $entity;
+    }
+
+    public function update($entity, $id) {
+        $pk = $this->pk();
+        $entity = $this->only_columns($entity);
+        if (count($entity) === 0) {
+            return 0;
+        }
+
+        $set = [];
+        foreach (array_keys($entity) as $column) {
+            $set[] = "$column = :$column";
+        }
+        $query = "UPDATE {$this->table_name} SET " . implode(', ', $set) . " WHERE $pk = :id";
+
+        $entity['id'] = $id;
+        return $this->execute($query, $entity);
+    }
+
+    public function delete($id) {
+        return $this->execute("DELETE FROM {$this->table_name} WHERE {$this->pk()} = :id", ['id' => $id]);
+    }
+
+    // transactions
+    public function begin_transaction() { self::connection()->beginTransaction(); }
+    public function commit() { self::connection()->commit(); }
+    public function rollback() { if (self::connection()->inTransaction()) self::connection()->rollBack(); }
+
+    protected function only_columns($entity) {
+        $entity = array_intersect_key($entity, array_flip($this->columns));
+        foreach ($entity as $column => $value) {
+            if (is_bool($value)) $entity[$column] = (int) $value;
+        }
+        return $entity;
+    }
 
 }
