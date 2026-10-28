@@ -37,7 +37,7 @@ class BaseDao {
     }
 
     protected function query_unique($query, $params = []) {
-        $results = $this->query_unique($query, $params);
+        $results = $this->query($query, $params);
         return $results[0] ?? null;
     }
 
