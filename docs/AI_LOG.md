@@ -43,3 +43,18 @@
 **Things that did not work (process)**
 
 - Asking the AI to give me a complete detailed explanation of all the topics that I will be learning during this project (after I explained the project and tech stack). Either I was not capable of cramming in so much information quickly, or the AI abstractly explained too many concepts in an attempt to summarize it all in one answer message. Now I look up things myself and only ask for detailed explanations of very specific concepts I am covering at the moment.
+
+## Milestone 2 – PHP data-access objects
+
+**Tools used:** Claude chat helped write the DAO classes for comments, games, teams, team members, types, and type effectiveness. I reviewed all of the code Claude wrote and added logic or removed logic I considered unnecessary.
+
+**Most important prompt (summary, not verbatim):** I asked Claude Code to help implement DAO classes for the project's remaining database tables, following the existing `BaseDao` and `PokemonDao` pattern and adding table-specific queries where needed. I do not remember the exact prompt wording.
+
+**What I decided myself (not the AI)**
+
+- Claude suggested changing how the `type_effectiveness` table works because its composite primary key is unusual. I rejected that suggestion because I believe my original table design is sound. The table keeps its composite key, and its DAO uses methods that address an attacker/defender type pair rather than treating the row as if it had a single `id`.
+- I reviewed the generated code and decided which logic to add and which unnecessary logic to remove.
+
+**Cases where the AI was wrong or misleading**
+
+- Claude Code's suggestion to change the `type_effectiveness` table design did not fit my intended schema, so I kept the original design. I do not remember enough detail to describe any other specific incorrect Claude output from this milestone.
