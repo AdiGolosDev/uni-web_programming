@@ -6,7 +6,7 @@ A Pokémon team builder and weakness analyzer. Build a team of up to 6 Pokémon 
 
 **Course:** Web Programming
 
-**Status:** Milestone 2 / 5 (draft).
+**Status:** Milestone 2 / 5
 
 ---
 
@@ -102,24 +102,32 @@ Calls use a 5 second timeout. Successes are written to the info log and failures
 
 ```
 backend/
-  config/        config.example.php (config.php is not committed)
-  dao/
+  config/            config.example.php (config.php is not committed)
+  rest/
+    dao/
+    routes/
+    services/
   middleware/
-  routes/
-  services/
-  logs/          (not committed)
+  logs/              (not committed)
   index.php
+  phinx.php
 frontend/
   css/
-  js/            router and service files
-  views/         HTML templates
+  js/                router and service files
+  views/             HTML templates
   assets/
   index.html
+database/
+  pokeapi_csv/       csv files used for seeding database
+  import_data.py     python script for seeding data
+  pokeplanner.sql
 docs/
   AI_LOG.md
+  erd.md
   erd.png
 AGENTS.md
 README.md
+.gitignore
 ```
 
 ## AI usage
