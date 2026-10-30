@@ -1,1 +1,0 @@
-I copied over the config.example.php into config/ and will set my own data later - kept in gitignore

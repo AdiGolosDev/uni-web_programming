@@ -1,0 +1,1 @@
+All csv files were downloaded from the PokeAPI public github repository, from the pokeapi/data/v2/csv/ directory.

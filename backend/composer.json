@@ -1,8 +1,13 @@
 {
-  "name": "adigolos/pokeplanner",
-  "description": "A Pokemon team builder and weakness analyzer for a web programming course",
+  "name": "adigolos/pokeplanner-backend",
+  "description": "PokéPlanner - (IT2001) Web Programming project",
   "type": "project",
   "require": {
-    "php": ">=8.2"
+    "php": ">=8.2",
+    "robmorgan/phinx": "^0.16"
+  },
+  "scripts": {
+    "migrate": "phinx migrate",
+    "seed": "phinx seed:run"
   }
 }
