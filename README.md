@@ -6,7 +6,7 @@ A Pokémon team builder and weakness analyzer. Build a team of up to 6 Pokémon 
 
 **Course:** Web Programming
 
-**Status:** Milestone 2 / 5
+**Status:** Milestone 3 / 5 (in progress)
 
 ---
 
@@ -108,7 +108,11 @@ backend/
     routes/
     services/
   middleware/
+  utils/
   logs/              (not committed)
+  .htaccess
+  composer.json
+  composer.lock
   index.php
   phinx.php
 frontend/

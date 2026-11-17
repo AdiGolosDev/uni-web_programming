@@ -58,3 +58,15 @@
 **Cases where the AI was wrong or misleading**
 
 - Claude Code's suggestion to change the `type_effectiveness` table design did not fit my intended schema, so I kept the original design. I do not remember enough detail to describe any other specific incorrect Claude output from this milestone.
+
+## Milestone 3 – Services, Routes and Swagger Documentation - Draft
+
+**Tools used:** Claude chat, Gemini chat and chat GPT were used as coding instructors, for explaining concepts, best practices and swagger documentation. They were also used to generate drafts of service files according to my detailed instructions.
+
+**Most important prompt (summary, not verbatim):**
+
+**What I decided myself (not the AI)**
+
+- BaseService.php, PokemonService.php and GameService.php were fully implemented by myself while I used LLM chatbots as a lookup tool, similar to how i would use any web-browser when learning a new technology. I planned out all of the rules for the business logic and assigned Claude chat to write drafts of other service files according to detailed instructions.
+
+**Cases where the AI was wrong or misleading**
