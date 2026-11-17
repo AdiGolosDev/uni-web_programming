@@ -45,6 +45,39 @@ class TeamMemberService extends BaseService {
         return parent::update($this->empty_to_null($entity, ['nickname']), $id);
     }
 
+    public function swap_slots($team_id, $slot_a, $slot_b) {
+        Validator::integer($team_id, 'team_id', 1);
+        Validator::integer($slot_a, 'slot_a', 1, 6);
+        Validator::integer($slot_b, 'slot_b', 1, 6);
+        if ((int) $slot_a === (int) $slot_b) {
+            throw new ValidationException('Choose two different slots to swap.');
+        }
+        if (!$this->team_dao->get_by_id($team_id)) {
+            throw new NotFoundException('Team not found.');
+        }
+
+        $a = null;
+        $b = null;
+        foreach ($this->dao->get_by_team($team_id) as $member) {
+            if ((int) $member['slot'] === (int) $slot_a) { $a = $member; }
+            if ((int) $member['slot'] === (int) $slot_b) { $b = $member; }
+        }
+        if (!$a || !$b) {
+            throw new ValidationException('Both slots must contain a Pokémon to be swapped.');
+        }
+
+        $this->dao->begin_transaction();
+        try {
+            $this->dao->update(['pokemon_id' => $b['pokemon_id'], 'nickname' => $b['nickname']], $a['id']);
+            $this->dao->update(['pokemon_id' => $a['pokemon_id'], 'nickname' => $a['nickname']], $b['id']);
+            $this->dao->commit();
+        } catch (Throwable $e) {
+            $this->dao->rollback();
+            throw $e;
+        }
+        return $this->dao->get_by_team($team_id);
+    }
+
     protected function validate($entity, $id = null) {
         Validator::required($entity, ['pokemon_id', 'team_id', 'slot']);
         Validator::integer($entity['pokemon_id'], 'pokemon_id', 1);
