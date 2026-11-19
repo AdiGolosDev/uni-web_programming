@@ -130,4 +130,20 @@ class PokemonPaths
         ]
     )]
     public function deletePokemonById() {}
+    
+        #[OA\Get(
+        path: '/pokemon/{id}/details',
+        tags: ['pokemon', 'external API'],
+        summary: 'Extra details from PokéAPI (height, weight, abilities, description, evolutions, artwork)',
+        description: 'Uses PokéAPI through the backend (5 second timeout). Results are cached in database/pokemon_details.json. If only some parts fail, the rest is returned and the failed parts are listed in "missing".',
+        parameters: [
+            new OA\Parameter(name: 'id', in: 'path', required: true, example: 6, description: 'Pokémon id in our database', schema: new OA\Schema(type: 'integer'))
+        ],
+        responses: [
+            new OA\Response(response: 200, description: 'The details', content: new OA\JsonContent(ref: '#/components/schemas/PokemonDetails')),
+            new OA\Response(response: 404, description: 'Pokémon not found', content: new OA\JsonContent(ref: '#/components/schemas/Error')),
+            new OA\Response(response: 503, description: 'PokéAPI is not available (every call failed)', content: new OA\JsonContent(ref: '#/components/schemas/Error'))
+        ]
+    )]
+    public function getPokemonByIdDetails() {}
 }

@@ -235,4 +235,44 @@ use OpenApi\Attributes as OA;
     allOf: [new OA\Schema(ref: '#/components/schemas/Comment')],
     properties: [new OA\Property(property: 'username', type: 'string', example: 'misty')]
 )]
+#[OA\Schema(
+    schema: 'PokemonAbility',
+    properties: [
+        new OA\Property(property: 'name', type: 'string', example: 'Solar Power'),
+        new OA\Property(property: 'is_hidden', type: 'boolean', example: true)
+    ]
+)]
+#[OA\Schema(
+    schema: 'EvolutionNode',
+    properties: [
+        new OA\Property(property: 'name', type: 'string', example: 'Charmeleon'),
+        new OA\Property(property: 'dex_number', type: 'integer', nullable: true, example: 5),
+        new OA\Property(property: 'min_level', type: 'integer', nullable: true, example: 16),
+        new OA\Property(property: 'trigger', type: 'string', nullable: true, example: 'level-up'),
+        new OA\Property(property: 'item', type: 'string', nullable: true, example: null),
+        new OA\Property(property: 'evolves_to', type: 'array', items: new OA\Items(ref: '#/components/schemas/EvolutionNode'))
+    ]
+)]
+#[OA\Schema(
+    schema: 'PokemonDetails',
+    properties: [
+        new OA\Property(property: 'pokemon_id', type: 'integer', example: 6),
+        new OA\Property(property: 'dex_number', type: 'integer', example: 6),
+        new OA\Property(property: 'name', type: 'string', example: 'Charizard'),
+        new OA\Property(property: 'height_m', type: 'number', nullable: true, example: 1.7),
+        new OA\Property(property: 'weight_kg', type: 'number', nullable: true, example: 90.5),
+        new OA\Property(property: 'abilities', type: 'array', nullable: true, items: new OA\Items(ref: '#/components/schemas/PokemonAbility')),
+        new OA\Property(property: 'artwork_url', type: 'string', nullable: true),
+        new OA\Property(property: 'description', type: 'string', nullable: true),
+        new OA\Property(property: 'evolution_chain', nullable: true, ref: '#/components/schemas/EvolutionNode'),
+        new OA\Property(
+            property: 'missing',
+            type: 'array',
+            description: 'Parts that could not be loaded from PokéAPI (their fields are null)',
+            items: new OA\Items(type: 'string', enum: ['basic_info', 'description', 'evolution_chain'])
+        ),
+        new OA\Property(property: 'source', type: 'string', enum: ['cache', 'pokeapi'], description: 'Where the data came from')
+    ]
+)]
+
 class OpenApiSpec {}

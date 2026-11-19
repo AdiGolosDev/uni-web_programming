@@ -2,15 +2,29 @@
 require_once __DIR__ . '/BaseService.php';
 require_once __DIR__ . '/../dao/PokemonDao.php';
 require_once __DIR__ . '/../dao/TypeDao.php';
+require_once __DIR__ . '/PokeApiService.php';
 
 class PokemonService extends BaseService {
     protected $entity_name = 'Pokémon';
     private const STATS = ['hp', 'attack', 'defense', 'sp_atk', 'sp_def', 'speed'];
     private $type_dao;
+    private $pokeapi;
 
     public function __construct() {
         parent::__construct(new PokemonDao());
         $this->type_dao = new TypeDao();
+        $this->pokeapi = new PokeApiService();
+    }
+
+    /** GET /pokemon/{id}/details – the id is OUR database id; PokéAPI is asked by Pokédex number. */
+    public function get_details($id) {
+        $pokemon = $this->get_by_id($id);                   // 404 if it is not in our catalog
+        $extras = $this->pokeapi->details($pokemon['dex_number']);
+        return array_merge([
+            'pokemon_id' => (int) $pokemon['id'],
+            'dex_number' => (int) $pokemon['dex_number'],
+            'name'       => $pokemon['name']
+        ], $extras);
     }
 
     public function get_all() {

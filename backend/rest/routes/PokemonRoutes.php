@@ -31,3 +31,7 @@ Flight::route('DELETE /pokemon/@id:[0-9]+', function ($id) {
     Flight::pokemon_service()->delete($id);
     Flight::json(['message' => 'Pokémon deleted.']);
 });
+
+Flight::route('GET /pokemon/@id:[0-9]+/details', function ($id) {
+    Flight::json(Flight::pokemon_service()->get_details($id));
+});

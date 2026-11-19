@@ -1,0 +1,173 @@
+{
+    "1": {
+        "height_m": 0.7,
+        "weight_kg": 6.9,
+        "abilities": [
+            {
+                "name": "Overgrow",
+                "is_hidden": false
+            },
+            {
+                "name": "Chlorophyll",
+                "is_hidden": true
+            }
+        ],
+        "artwork_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+        "description": "While it is young, it uses the nutrients that are stored in the seed on its back in order to grow.",
+        "evolution_chain": {
+            "name": "Bulbasaur",
+            "dex_number": 1,
+            "min_level": null,
+            "trigger": null,
+            "item": null,
+            "evolves_to": [
+                {
+                    "name": "Ivysaur",
+                    "dex_number": 2,
+                    "min_level": 16,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": [
+                        {
+                            "name": "Venusaur",
+                            "dex_number": 3,
+                            "min_level": 32,
+                            "trigger": "level-up",
+                            "item": null,
+                            "evolves_to": []
+                        }
+                    ]
+                }
+            ]
+        },
+        "fetched_at": "2026-11-19T21:27:55+00:00"
+    },
+    "22": {
+        "height_m": 1.2,
+        "weight_kg": 38,
+        "abilities": [
+            {
+                "name": "Keen Eye",
+                "is_hidden": false
+            },
+            {
+                "name": "Sniper",
+                "is_hidden": true
+            }
+        ],
+        "artwork_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+        "description": "A Pokémon that dates back many years. If it senses danger, it flies high and away, instantly.",
+        "evolution_chain": {
+            "name": "Spearow",
+            "dex_number": 21,
+            "min_level": null,
+            "trigger": null,
+            "item": null,
+            "evolves_to": [
+                {
+                    "name": "Fearow",
+                    "dex_number": 22,
+                    "min_level": 20,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                }
+            ]
+        },
+        "fetched_at": "2026-11-19T21:17:29+00:00"
+    },
+    "133": {
+        "height_m": 0.3,
+        "weight_kg": 6.5,
+        "abilities": [
+            {
+                "name": "Run Away",
+                "is_hidden": false
+            },
+            {
+                "name": "Adaptability",
+                "is_hidden": false
+            },
+            {
+                "name": "Anticipation",
+                "is_hidden": true
+            }
+        ],
+        "artwork_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+        "description": "Harbors the potential to evolve into manifold forms. Within Eevee lies the key to the mysteries of Pokémon evolution—I'm certain of it.",
+        "evolution_chain": {
+            "name": "Eevee",
+            "dex_number": 133,
+            "min_level": null,
+            "trigger": null,
+            "item": null,
+            "evolves_to": [
+                {
+                    "name": "Vaporeon",
+                    "dex_number": 134,
+                    "min_level": null,
+                    "trigger": "use-item",
+                    "item": "Water Stone",
+                    "evolves_to": []
+                },
+                {
+                    "name": "Jolteon",
+                    "dex_number": 135,
+                    "min_level": null,
+                    "trigger": "use-item",
+                    "item": "Thunder Stone",
+                    "evolves_to": []
+                },
+                {
+                    "name": "Flareon",
+                    "dex_number": 136,
+                    "min_level": null,
+                    "trigger": "use-item",
+                    "item": "Fire Stone",
+                    "evolves_to": []
+                },
+                {
+                    "name": "Espeon",
+                    "dex_number": 196,
+                    "min_level": null,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                },
+                {
+                    "name": "Umbreon",
+                    "dex_number": 197,
+                    "min_level": null,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                },
+                {
+                    "name": "Leafeon",
+                    "dex_number": 470,
+                    "min_level": null,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                },
+                {
+                    "name": "Glaceon",
+                    "dex_number": 471,
+                    "min_level": null,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                },
+                {
+                    "name": "Sylveon",
+                    "dex_number": 700,
+                    "min_level": null,
+                    "trigger": "level-up",
+                    "item": null,
+                    "evolves_to": []
+                }
+            ]
+        },
+        "fetched_at": "2026-11-19T21:18:40+00:00"
+    }
+}
