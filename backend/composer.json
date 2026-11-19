@@ -6,7 +6,7 @@
     "php": ">=8.2",
     "robmorgan/phinx": "^0.16",
     "flightphp/core": "^3.19",
-    "zircote/swagger-php": "^7.6"
+    "zircote/swagger-php": "^6.12"
   },
   "scripts": {
     "migrate": "phinx migrate",
