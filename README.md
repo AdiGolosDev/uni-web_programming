@@ -6,7 +6,7 @@ A Pokémon team builder and weakness analyzer. Build a team of up to 6 Pokémon 
 
 **Course:** Web Programming
 
-**Status:** Milestone 3 / 5 (in progress)
+**Status:** Milestone 3 / 5
 
 ---
 
@@ -90,13 +90,20 @@ ERD: draft version located in docs/erd.png
 
 Everything the application's own logic needs (name, types, base stats, generation, sprite) is stored in the project's database, so the Pokédex, teams and weakness analysis never depend on the API. Extra information is fetched live through the backend when a logged-in user clicks **Show more details** on a Pokémon: height, weight, abilities, Pokédex description, evolution chain and official artwork. Guests see a "log in to see more details" prompt instead. Admins can also import a Pokémon by name or number to prefill the catalog form.
 
-Calls use a 5 second timeout. Successes are written to the info log and failures to the error log. If PokéAPI is unavailable, the details panel shows a "details temporarily unavailable" message, and the stored data and the rest of the application keep working.
+Calls use a 5 second timeout. Successes are written to the info log and failures to the error log. First-time calls to PokeAPI get stored in pokemon_details.json (calls with missing details ignored to avoid loading incomplete data into cache), as a cache for reuse later (complying to PokeAPI policy on API usage). If PokéAPI is unavailable, the details panel shows a "details temporarily unavailable" message, and the stored data and the rest of the application keep working.
 
 ## Tech stack
 
 - **Backend:** PHP, FlightPHP, PDO, MySQL, JWT, OpenAPI (Swagger)
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap 5 (Bootswatch theme), Highcharts, DataTables
 - **Architecture:** single-page application, REST API, routes -> services -> DAOs, with middleware for authentication, authorization, request logging, error handling and rate limiting
+
+## Running locally
+
+1. Import database/pokeplanner.sql (I used XAMPP's MySQL)
+2. Copy backend/config/config.example.php to config.php and set values
+3. cd backend && composer install
+4. Deployment (TBD)
 
 ## Project structure
 

@@ -23,10 +23,11 @@ New registrations are always `trainer`.
 - **Frontend:** HTML5, CSS3, JavaScript, jQuery 3, Bootstrap 5 (Bootswatch **Darkly** theme),
   spapp, DataTables, Toastr, Highcharts.
   No frameworks (React/Vue/Angular are NOT allowed).
-- **Backend:** PHP 8.2+, FlightPHP 3, MySQL, JWT for authentication. No other PHP framework.
+- **Backend:** PHP 8.4.1+, FlightPHP 3, MySQL, JWT for authentication. No other PHP framework.
 - **Database:** MySQL 8.
-- **External API:** PokéAPI (https://pokeapi.co)
+- **External API:** PokéAPI (https://pokeapi.co), cURL
 - **Local server:** XAMPP (Apache + MySQL).
+- **API Documentation** Swagger-php 6, Swagger UI
 
 ## Folder structure
 
@@ -44,22 +45,34 @@ backend/             REST API – only PHP
   rest/services/     business logic layer
   rest/dao/          data access layer (PDO)
   middleware/        request logger, error handler, auth (401), role check (403)
+  public/v1/docs/
+    paths/           API documentation paths
+    swagger.php
+    index.html
+    doc_setup.php
   logs/              info.log / error.log (NOT committed)
+  utils/             utility files
+  vendor/            NOT committed
+database/
+  pokeapi_csv/
+  import_data.py
+  pokeplanner.sql
+  pokemon_details.json
 docs/                ERD (ERD.md + erd.png), AI_LOG.md
 ```
 
 ## Views (one `<section>` in `index.html` per view)
 
-| Section id          | File                          | Who                                                               | Status                            |
-| ------------------- | ----------------------------- | ----------------------------------------------------------------- | --------------------------------- |
-| `home` (last)       | `home.html`                   | everyone                                                          | static draft                      |
-| `pokedex`           | `pokedex.html`                | everyone (live PokéAPI details: trainers only)                    | static draft, becomes a DataTable |
-| `teams`             | `teams.html`                  | tabs: **Your teams** (trainer/admin), **Public teams** (everyone) | static draft                      |
-| `analysis`          | `analysis.html`               | everyone; owner-only Change buttons                               | static draft (one sample team)    |
-| `profile`           | `profile.html`                | trainer, admin                                                    | undecided / optional              |
+| Section id          | File                          | Who                                                                                        | Status                                    |
+| ------------------- | ----------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| `home` (last)       | `home.html`                   | everyone                                                                                   | static draft                              |
+| `pokedex`           | `pokedex.html`                | everyone (live PokéAPI details: trainers only)                                             | static draft, becomes a DataTable         |
+| `teams`             | `teams.html`                  | tabs: **Your teams** (trainer/admin), **Public teams** (everyone)                          | static draft                              |
+| `analysis`          | `analysis.html`               | everyone; owner-only Change buttons                                                        | static draft (one sample team)            |
+| `profile`           | `profile.html`                | trainer, admin                                                                             | undecided / optional                      |
 | `administration`    | `admin.html`                  | admin only (tabs: Users, Pokémon, Teams, Games, Comments, Types, Type chart, Team members) | static mockup; access is not enforced yet |
-| `login`, `register` | `login.html`, `register.html` | guests                                                            | static draft                      |
-| `error_404`         | `404.html`                    | everyone                                                          | done                              |
+| `login`, `register` | `login.html`, `register.html` | guests                                                                                     | static draft                              |
+| `error_404`         | `404.html`                    | everyone                                                                                   | done                                      |
 
 Hiding a menu item or button is only cosmetic. Access is enforced by the backend (401 / 403), never only in the UI.
 
@@ -70,7 +83,7 @@ Hiding a menu item or button is only cosmetic. Access is enforced by the backend
 
 - One modern type chart for all games; Pokémon are species only (no regional forms).
 - A Pokémon can be used in a game only if `pokemon.generation <= games.generation`.
-- Catalog starts with generations 1–3. Duplicate Pokémon in one team are allowed. Slots are 1–6.
+- The seed contains all 9 generations (1025 Pokemon, 37 games). Duplicate Pokémon in one team are allowed. Slots are 1–6.
 - `teams.challenge` is free text (e.g. Nuzlocke). Avatar = sprite of the user's favorite Pokémon (no upload).
 - `type_effectiveness` has a composite primary key, so it does not use the generic `getById`.
 - Planned (not confirmed): `pokemon.details_json` + `details_fetched_at` as the PokéAPI cache.
@@ -86,6 +99,6 @@ Hiding a menu item or button is only cosmetic. Access is enforced by the backend
 ## Rules the AI must follow
 
 1. Never mix backend and frontend code. No PHP in `frontend/`, no HTML output from `backend/`.
-2. Keep the existing code style (see naming conventions). Do not introduce new libraries without asking.
+2. Keep the existing code style. Do not introduce new libraries without asking.
 3. Explain every change so that the student can defend it without AI help. Work in small steps.
 4. Never claim something works without it having been tested; say what was and was not checked.

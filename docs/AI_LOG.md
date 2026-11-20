@@ -59,14 +59,23 @@
 
 - Claude Code's suggestion to change the `type_effectiveness` table design did not fit my intended schema, so I kept the original design. I do not remember enough detail to describe any other specific incorrect Claude output from this milestone.
 
-## Milestone 3 – Services, Routes and Swagger Documentation - Draft
+## Milestone 3 – Services, routes, OpenAPI documentation and external API
 
-**Tools used:** Claude chat, Gemini chat and chat GPT were used as coding instructors, for explaining concepts, best practices and swagger documentation. They were also used to generate drafts of service files according to my detailed instructions.
+**Tools used:** Claude (chat) as a teaching assistant on the course materials, drafting parts of the code and writing temporary test files for quick checks. Claude taught me about concepts while I was learning and coding GameService and PokemonService and their respective route and path files, and it wrote full draft versions of files for the rest of the entities, which I then reviewed and edited. Claude also suggested the Logger class and was used to speed up the process of writing Swagger documentation by generating full drafts that I reviewed.
 
-**Most important prompt (summary, not verbatim):**
+**Most important prompts (summaries, not verbatim)**
+
+- "Explain BaseService and one service from my teachers code example in full detail, and which steps repeat in every service and why."
+- "Check whether what we wrote follows my ERD so far." → found two inconsistencies (generation range in AGENTS.md, TIMESTAMP vs datetime in the ERD).
 
 **What I decided myself (not the AI)**
 
-- BaseService.php, PokemonService.php and GameService.php were fully implemented by myself while I used LLM chatbots as a lookup tool, similar to how i would use any web-browser when learning a new technology. I planned out all of the rules for the business logic and assigned Claude chat to write drafts of other service files according to detailed instructions.
+- I kept `Roles` as admin and trainer only. A guest is simply someone without a token, not a database role.
+- I decided that the frontend needs swapping two Pokémon between slots, so a dedicated swap method was added, which swaps the contents of two rows and does not touch the unique slot constraint.
+- External API is only called if data isn't found in cache. Pokemon details received through PokeAPI are stored in cache if no data is missing (to align with PokeAPI's policy and regulations and to avoid overuse of their API).
+- External API decisions: the cache is a JSON file (`database/pokemon_details.json`), not a database column; the log has to say whether the data was found in the cache before the API was called; if one of the three PokéAPI calls fails, the other details are still returned; the admin import and the login restriction of the endpoint are postponed to milestone4.
 
-**Cases where the AI was wrong or misleading**
+**Cases where the AI was wrong or produced poor code**
+
+1. **It invented its own architecture before seeing my teacher's code.** Claude wrote an `ApiException` class and a BaseService with different method names and a validate() that returned data when I only asked it how it would plan this milestone of the project. After I informed it about the professor's project architecture and style, it seemed to become more inline with the project and was more helpful in explaining concepts and programming styles.
+2. **It used DAO methods that did not exist.** The first TeamService and TeamMemberService drafts called methods such as `count_newer_than`, `get_by_team_and_slot` and `get_by_team_with_pokemon`, which my DAOs did not have, and used method names like `create` that did not match my BaseDao (`add`). I noticed this when I compared the drafts with my DAO files.
